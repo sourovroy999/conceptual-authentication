@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+
 
 const Login = () => {
+
+const {logInUser}=useContext(AuthContext)
 
     const handleLogin=(e)=>{
         e.preventDefault();
         const email=e.target.email.value;
         const password=e.target.password.value;
         console.log(email,password);
-        
+        logInUser(email,password)
+
         
     }
+        
+    
 
     return (
         <div className='w-[40%] mx-auto '>
+           
         <form onSubmit={handleLogin} className='space-y-3'>
             
             <div>
@@ -31,5 +39,6 @@ const Login = () => {
     </div>
     );
 };
+
 
 export default Login;

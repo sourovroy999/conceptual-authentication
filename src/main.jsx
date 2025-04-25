@@ -12,7 +12,7 @@ import Home from './Components/Home/Home.jsx';
 import Root from './Components/Root/Root.jsx';
 import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
-import InsideHome from './Components/InsideHome/InsideHome.jsx';
+import AuthProvider from './Components/AuthProvider/AuthProvider.jsx';
 
 const router=createBrowserRouter([
   {
@@ -21,9 +21,9 @@ const router=createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home>
-          <InsideHome/>
-        </Home>
+        element:<Home/>
+          
+    
       },
       {
         path:'login',
@@ -40,5 +40,10 @@ const router=createBrowserRouter([
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
+
+  <AuthProvider>
   <RouterProvider router={router} />
+
+  </AuthProvider>
+
 );
